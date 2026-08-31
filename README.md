@@ -1,44 +1,26 @@
-# frontend-clotho
+# Sistema de controle de estoque de roupas - Clotho - Frontend
 
-This template should help get you started developing with Vue 3 in Vite.
+## Integrantes do grupo
 
-## Recommended IDE Setup
+* Felipe Pinheiro Sombra - RM 559167
+* Fernando de Freitas Carvalho - RM 555194
+* Jhonatan Lopes da Silva - RM 559174
+* Nicolas Alves dos Santos - RM 558993
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Visão geral
 
-## Recommended Browser Setup
+Este projeto é uma aplicação de controle de estoque de roupas. O sistema permite cadastro de usuários, dashboard de estoque, cadastro de roupas para estoque, histórico de venda, manutenção de estoque.
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+O objetivo é centralizar o fluxo, oferecendo mais controle sobre o estoque.
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
+## Setup do projeto
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Compilar e rodar para o desenvolvimento
 
 ```sh
 npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
 ```
