@@ -50,6 +50,6 @@ npm run dev
 ```
 
 ## Outros links do projeto
-frontend: https://github.com/jhonatanlps/frontend-clotho
-miro: https://miro.com/app/board/uXjVGprGIJA=/
-figma: https://www.figma.com/design/MQINi5NHgbH3Yx5sOpqdNo/Untitled?node-id=0-1&p=f
+* Backend: https://github.com/jhonatanlps/backend-clotho
+* Miro: https://miro.com/app/board/uXjVGprGIJA=/
+* Figma: https://www.figma.com/design/MQINi5NHgbH3Yx5sOpqdNo/Untitled?node-id=0-1&p=f
