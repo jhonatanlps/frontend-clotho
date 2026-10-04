@@ -36,15 +36,15 @@ const topProducts = ref([
 
         <!-- Menu de Navegação -->
         <nav class="sidebar-nav">
-          <a href="#" class="nav-item active">
+          <a href="/dashboard" class="nav-item active">
             <LayoutGrid :size="18" class="nav-icon" />
             <span>Dashboard</span>
           </a>
-          <a href="#" class="nav-item">
+          <a href="/produtos" class="nav-item">
             <Shirt :size="18" class="nav-icon" />
             <span>Produtos</span>
           </a>
-          <a href="#" class="nav-item">
+          <a href="/estoque" class="nav-item">
             <Package :size="18" class="nav-icon" />
             <span>Estoque</span>
           </a>
@@ -53,10 +53,10 @@ const topProducts = ref([
 
       <!-- Botão Sair no Rodapé da Sidebar -->
       <div class="sidebar-footer">
-        <button class="logout-button">
+        <a href="/" class="logout-button">
           <LogOut :size="18" class="nav-icon" />
           <span>Sair</span>
-        </button>
+        </a>
       </div>
     </aside>
 
@@ -331,6 +331,7 @@ img.logo {
   cursor: pointer;
   border-radius: 6px;
   transition: background-color 0.15s ease;
+  text-decoration: none;
 }
 
 .logout-button:hover {
