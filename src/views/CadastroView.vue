@@ -2,33 +2,48 @@
 import { reactive } from 'vue'
 
 const form = reactive({
+  fullname: '',
   username: '',
-  password: ''
+  password: '',
+  confirmPassword: ''
 })
 
-const handleLogin = () => {
-  console.log('Submissão do formulário:', form)
-  alert(`A iniciar sessão para o utilizador: ${form.username}`)
-}
-
-const goToRegister = () => {
-  alert('A reencaminhar para a página de registo...')
+const handleRegister = () => {
+  if (form.password !== form.confirmPassword) {
+    alert('As senhas não coincidem!')
+    return
+  }
+  console.log('Dados de registo:', form)
+  alert(`Conta criada com sucesso para o utilizador: ${form.username}`)
+  window.location.href = '/' // Redireciona para a página de login após registro
 }
 </script>
 
 <template>
-  <div class="login-container">
-    <div class="login-card">
+  <div class="login">
+    <main class="register-card">
       <!-- Logótipo Clotho -->
-      <div class="logo-wrapper">
-        <div class="logo-box">
-          <span class="logo-c">C</span>
-        </div>
-        <span class="logo-text">lotho</span>
-      </div>
+      <header class="logo-container">
+        <img 
+            src="../assets/clotho_fundo_claro.png" 
+            alt="Logo Clotho"
+            class="logo"
+        />
+      </header>
 
-      <!-- Formulário de Autenticação -->
-      <form @submit.prevent="handleLogin" class="login-form">
+      <!-- Formulário de Registo -->
+      <form @submit.prevent="handleRegister" class="register-form">
+        <div class="form-group">
+          <label for="fullname">Nome completo</label>
+          <input
+            id="fullname"
+            v-model="form.fullname"
+            type="text"
+            placeholder="Seu usuário"
+            required
+          />
+        </div>
+
         <div class="form-group">
           <label for="username">Usuário</label>
           <input
@@ -36,6 +51,7 @@ const goToRegister = () => {
             v-model="form.username"
             type="text"
             placeholder="Seu usuário"
+            autocomplete="username"
             required
           />
         </div>
@@ -47,88 +63,79 @@ const goToRegister = () => {
             v-model="form.password"
             type="password"
             placeholder="********"
+            autocomplete="new-password"
             required
           />
         </div>
 
-        <div class="link-wrapper">
-          <a href="#" @click.prevent="goToRegister" class="register-link">
-            Não tem conta? Crie agora
-          </a>
+        <div class="form-group">
+          <label for="confirmPassword">Confirmar senha</label>
+          <input
+            id="confirmPassword"
+            v-model="form.confirmPassword"
+            type="password"
+            placeholder="********"
+            autocomplete="new-password"
+            required
+          />
         </div>
 
-        <button type="submit" class="btn-submit">
-          Entrar
+        <button type="submit" class="submit-button">
+          Criar
         </button>
       </form>
-    </div>
+    </main>
   </div>
 </template>
 
+
+
 <style scoped>
-/* Contentor principal escuro */
-.login-container {
+/* Contentor Desktop */
+.login {
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background-color: #1a1a1a;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  margin: 0;
-  padding: 16px;
+  background-color: #1a1a1b;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
-/* Cartão do formulário */
-.login-card {
+/* Cartão do Formulário */
+.register-card {
+  width: 480px;
   background-color: #f7f9fa;
-  width: 100%;
-  max-width: 400px;
-  padding: 40px 36px;
-  border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 48px 48px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Logótipo */
-.logo-wrapper {
+/* Logótipo Clotho */
+.logo-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 36px;
+  margin-bottom: 32px;
+  user-select: none;
 }
 
-.logo-box {
-  background-color: #8b0000;
-  border: 2px solid #4a0000;
-  width: 44px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 3px;
-  margin-right: 2px;
-}
-
-.logo-c {
-  color: #ffea00;
-  font-weight: 900;
-  font-size: 30px;
-  font-family: Arial, sans-serif;
-  line-height: 1;
-}
-
-.logo-text {
-  font-size: 42px;
-  font-weight: 800;
-  color: #111111;
-  letter-spacing: -1px;
+img.logo {
+  width: 200px;
+  height: auto;
+  object-fit: contain;
 }
 
 /* Formulário e Inputs */
-.login-form {
+.register-form {
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-group {
@@ -138,21 +145,24 @@ const goToRegister = () => {
 }
 
 .form-group label {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
-  color: #2b2b2b;
+  color: #2c2c2c;
   margin-bottom: 6px;
 }
 
 .form-group input {
-  padding: 10px 12px;
-  border: 1px solid #dcdcdc;
-  border-radius: 4px;
-  background-color: #eeeeee;
+  width: 100%;
+  height: 42px;
+  padding: 0 14px;
+  border: 1px solid #d5d8dc;
+  border-radius: 5px;
+  background-color: #efefef;
   font-size: 14px;
-  color: #333333;
+  color: #222222;
+  box-sizing: border-box;
   outline: none;
-  transition: border-color 0.2s ease;
+  transition: all 0.2s ease-in-out;
 }
 
 .form-group input::placeholder {
@@ -160,47 +170,33 @@ const goToRegister = () => {
 }
 
 .form-group input:focus {
-  border-color: #ffd700;
+  border-color: #ffea00;
   background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(255, 234, 0, 0.25);
 }
 
-/* Hiperligação inferior */
-.link-wrapper {
-  margin-top: 4px;
-  margin-bottom: 24px;
-}
-
-.register-link {
-  font-size: 12px;
-  color: #cccc00;
-  text-decoration: underline;
-  transition: color 0.2s;
-}
-
-.register-link:hover {
-  color: #aaaa00;
-}
-
-/* Botão de Submissão */
-.btn-submit {
+/* Botão Criar */
+.submit-button {
   width: 100%;
-  padding: 12px;
-  background-color: #ffd700;
+  height: 48px;
+  margin-top: 12px;
+  background-color: #ffea00;
   color: #ffffff;
   font-weight: 700;
   font-size: 16px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.1s;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.btn-submit:hover {
-  background-color: #f0ca00;
+.submit-button:hover {
+  background-color: #f2de00;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.btn-submit:active {
-  transform: scale(0.99);
+.submit-button:active {
+  transform: translateY(1px);
 }
 </style>
