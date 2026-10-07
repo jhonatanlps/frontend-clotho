@@ -53,3 +53,6 @@ npm run dev
 * Backend: https://github.com/jhonatanlps/backend-clotho
 * Miro: https://miro.com/app/board/uXjVGprGIJA=/
 * Figma: https://www.figma.com/design/MQINi5NHgbH3Yx5sOpqdNo/Untitled?node-id=0-1&p=f
+* Protótipo no figma: https://www.figma.com/proto/Mz88ycnHpU0IeTBB7z4Y8u/Untitled?node-id=0-1&t=uzYSi4myRKnBQLc7-1
+* Simulação funcional: https://www.youtube.com/watch?v=O6xtJHj_FtA
+* Video de apresentação: https://www.youtube.com/watch?v=DM6QyTOT77M
